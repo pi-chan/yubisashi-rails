@@ -1,8 +1,10 @@
-# <yubisashi-rails>
+# yubisashi-rails
 
 A visual UI annotation tool for Rails views. Click elements on the page to record feedback, then copy structured Markdown / JSON output for AI coding agents.
 
 Leverages `annotate_rendered_view_with_filenames` HTML comments to automatically identify template files.
+
+![Annotating a Rails app with yubisashi-rails](docs/screenshot.png)
 
 ## Usage
 
