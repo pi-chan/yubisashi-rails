@@ -1,0 +1,29 @@
+{
+  "name": "yubisashi-rails",
+  "version": "0.1.0",
+  "description": "Visual annotation tool for Rails views - generate structured Markdown for AI coding agents",
+  "main": "dist/yubisashi-rails.mjs",
+  "exports": {
+    ".": "./dist/yubisashi-rails.mjs"
+  },
+  "types": "types/yubisashi-rails.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "dev": "vite --open",
+    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vite": "^7.0.6"
+  },
+  "packageManager": "pnpm@10.10.0"
+}
