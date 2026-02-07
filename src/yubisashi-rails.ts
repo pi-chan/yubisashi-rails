@@ -294,6 +294,8 @@ export class YubisashiRails extends LitElement {
     this._popoverY = event.clientY
     this._popoverVisible = true
     this._overlayVisible = false
+
+    navigator.clipboard.writeText(result.path).catch(() => {})
   }
 
   private _handlePopoverSubmit = (event: CustomEvent<{ comment: string }>) => {
