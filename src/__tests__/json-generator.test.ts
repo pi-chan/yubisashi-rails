@@ -61,7 +61,7 @@ describe('generateJson', () => {
     const parsed = JSON.parse(result)
 
     expect(parsed.annotations[0].id).toBe(3)
-    expect(parsed.annotations[0].comment).toBe('User profile card')
+    expect(parsed.annotations[0].feedback).toBe('User profile card')
   })
 
   it('includes element details', () => {
@@ -136,9 +136,9 @@ describe('generateJson', () => {
 
     expect(parsed.annotations).toHaveLength(2)
     expect(parsed.annotations[0].id).toBe(1)
-    expect(parsed.annotations[0].comment).toBe('First')
+    expect(parsed.annotations[0].feedback).toBe('First')
     expect(parsed.annotations[1].id).toBe(2)
-    expect(parsed.annotations[1].comment).toBe('Second')
+    expect(parsed.annotations[1].feedback).toBe('Second')
   })
 
   it('produces pretty-printed JSON with 2-space indent', () => {

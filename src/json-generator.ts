@@ -5,7 +5,7 @@ interface JsonOutput {
   timestamp: string
   annotations: ReadonlyArray<{
     id: number
-    comment: string
+    feedback: string
     element: Annotation['element']
     source: Annotation['source']
     timestamp: string
@@ -21,7 +21,7 @@ export const generateJson = (
     timestamp: new Date().toISOString(),
     annotations: annotations.map((a) => ({
       id: a.id,
-      comment: a.comment,
+      feedback: a.comment,
       element: a.element,
       source: a.source,
       timestamp: a.timestamp,

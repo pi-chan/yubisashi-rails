@@ -44,11 +44,12 @@ describe('generateMarkdown', () => {
     expect(result).toContain('> Timestamp: 2025-06-01T12:00:00.000Z')
   })
 
-  it('formats annotation with id and comment', () => {
+  it('formats annotation with id as title and comment as feedback', () => {
     const annotations = [createAnnotation({ id: 3, comment: 'User profile card' })]
     const result = generateMarkdown(annotations, 'http://localhost:3000')
 
-    expect(result).toContain('## #3 User profile card')
+    expect(result).toContain('## Annotation #3')
+    expect(result).toContain('- **Feedback**: User profile card')
   })
 
   it('includes file and selector', () => {
@@ -146,7 +147,9 @@ describe('generateMarkdown', () => {
     ]
     const result = generateMarkdown(annotations, 'http://localhost:3000')
 
-    expect(result).toContain('## #1 First')
-    expect(result).toContain('## #2 Second')
+    expect(result).toContain('## Annotation #1')
+    expect(result).toContain('- **Feedback**: First')
+    expect(result).toContain('## Annotation #2')
+    expect(result).toContain('- **Feedback**: Second')
   })
 })

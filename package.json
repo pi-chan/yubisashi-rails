@@ -1,6 +1,6 @@
 {
   "name": "yubisashi-rails",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Visual annotation tool for Rails views - generate structured Markdown for AI coding agents",
   "main": "dist/yubisashi-rails.mjs",
   "exports": {

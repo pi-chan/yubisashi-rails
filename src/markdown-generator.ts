@@ -4,7 +4,7 @@ const formatAnnotation = (annotation: Annotation): string => {
   const lines: string[] = []
   const { element, source } = annotation
 
-  lines.push(`## #${annotation.id} ${annotation.comment}`)
+  lines.push(`## Annotation #${annotation.id}`)
   lines.push('')
   lines.push(`- **File**: \`${source.file}\``)
   lines.push(`- **Selector**: \`${element.selector}\``)
@@ -30,6 +30,10 @@ const formatAnnotation = (annotation: Annotation): string => {
 
   const { boundingBox: bb } = element
   lines.push(`- **Bounding box**: x=${bb.x}, y=${bb.y}, w=${bb.width}, h=${bb.height}`)
+
+  if (annotation.comment) {
+    lines.push(`- **Feedback**: ${annotation.comment}`)
+  }
 
   return lines.join('\n')
 }
