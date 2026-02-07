@@ -4,7 +4,7 @@ A visual UI annotation tool for Rails views. Click elements on the page to recor
 
 Leverages `annotate_rendered_view_with_filenames` HTML comments to automatically identify template files.
 
-![Annotating a Rails app with yubisashi-rails](docs/screenshot.png)
+<img src="docs/screenshot.png" alt="Annotating a Rails app with yubisashi-rails" width="600">
 
 ## Usage
 
