@@ -45,6 +45,13 @@ export const collectDataAttributes = (element: HTMLElement): Record<string, stri
   return attrs
 }
 
+export const getSelectedText = (): string | undefined => {
+  const selection = window.getSelection()
+  if (!selection || selection.isCollapsed) return undefined
+  const text = selection.toString().trim()
+  return text.length > 0 ? text : undefined
+}
+
 export const getBoundingBox = (element: HTMLElement) => {
   const rect = element.getBoundingClientRect()
   return {

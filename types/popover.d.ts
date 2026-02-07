@@ -4,6 +4,7 @@ export declare class YubisashiPopover extends LitElement {
     x: number;
     y: number;
     filePath: string;
+    selectedText: string;
     private _textarea;
     render(): import("lit").TemplateResult<1>;
     firstUpdated(): void;

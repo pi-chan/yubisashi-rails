@@ -11,23 +11,23 @@ export class YubisashiPopover extends LitElement {
     }
 
     .popover {
-      background: #fff;
-      border: 1px solid #e2e8f0;
+      background: var(--yubisashi-bg, #fff);
+      border: 1px solid var(--yubisashi-border, #e2e8f0);
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 8px 24px var(--yubisashi-shadow, rgba(0, 0, 0, 0.16));
       padding: 12px;
       width: 320px;
     }
 
     .header {
       font-size: 12px;
-      color: #64748b;
+      color: var(--yubisashi-muted, #64748b);
       margin-bottom: 8px;
     }
 
     .file-path {
       font-size: 11px;
-      color: #6366f1;
+      color: var(--yubisashi-primary, #6366f1);
       font-family: 'SF Mono', 'Fira Code', monospace;
       margin-bottom: 8px;
       word-break: break-all;
@@ -37,18 +37,20 @@ export class YubisashiPopover extends LitElement {
       width: 100%;
       min-height: 60px;
       padding: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--yubisashi-border, #e2e8f0);
       border-radius: 8px;
       font-size: 13px;
       font-family: inherit;
       resize: vertical;
       outline: none;
       box-sizing: border-box;
+      background: var(--yubisashi-bg, #fff);
+      color: var(--yubisashi-text, #334155);
     }
 
     textarea:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+      border-color: var(--yubisashi-primary, #6366f1);
+      box-shadow: 0 0 0 2px var(--yubisashi-primary-bg, rgba(99, 102, 241, 0.15));
     }
 
     .actions {
@@ -69,21 +71,43 @@ export class YubisashiPopover extends LitElement {
     }
 
     .btn-cancel {
-      background: #f1f5f9;
-      color: #475569;
+      background: var(--yubisashi-hover, #f1f5f9);
+      color: var(--yubisashi-text, #475569);
     }
 
     .btn-cancel:hover {
-      background: #e2e8f0;
+      background: var(--yubisashi-border, #e2e8f0);
     }
 
     .btn-submit {
-      background: #6366f1;
-      color: #fff;
+      background: var(--yubisashi-primary, #6366f1);
+      color: var(--yubisashi-primary-text, #fff);
     }
 
     .btn-submit:hover {
-      background: #4f46e5;
+      background: var(--yubisashi-primary-hover, #4f46e5);
+    }
+
+    .selected-text {
+      font-size: 11px;
+      color: var(--yubisashi-text, #475569);
+      background: var(--yubisashi-bg-secondary, #f8fafc);
+      border: 1px solid var(--yubisashi-border, #e2e8f0);
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      max-height: 60px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .selected-text-label {
+      font-size: 10px;
+      color: var(--yubisashi-text-muted, #94a3b8);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     [hidden] {
@@ -100,6 +124,9 @@ export class YubisashiPopover extends LitElement {
   @property()
   filePath = ''
 
+  @property()
+  selectedText = ''
+
   @query('textarea')
   private _textarea!: HTMLTextAreaElement
 
@@ -111,6 +138,12 @@ export class YubisashiPopover extends LitElement {
         @mousemove=${this._stopPropagation}>
         <div class="header">Add annotation</div>
         <div class="file-path">${this.filePath}</div>
+        ${this.selectedText
+          ? html`
+            <div class="selected-text-label">Selected text</div>
+            <div class="selected-text">${this.selectedText}</div>
+          `
+          : null}
         <textarea
           placeholder="What should be changed?"
           @keydown=${this._handleKeydown}
