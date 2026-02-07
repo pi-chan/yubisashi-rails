@@ -247,7 +247,7 @@ export class YubisashiAnnotationPanel extends LitElement {
             <span class="panel-title">Annotations</span>
             <span class="panel-count">(${this.annotations.length})</span>
           </div>
-          <button class="close-btn" @click=${this._handleClose} title="Close panel">
+          <button class="close-btn" @click=${this._handleClose} title="Close panel" aria-label="Close panel">
             \u2715
           </button>
         </div>
@@ -271,6 +271,7 @@ export class YubisashiAnnotationPanel extends LitElement {
             <button
               class="card-btn"
               title="Edit"
+              aria-label="Edit annotation"
               @click=${(e: Event) => { e.stopPropagation(); this._startEdit(summary.id, summary.comment) }}
             >
               \u270E
@@ -278,6 +279,7 @@ export class YubisashiAnnotationPanel extends LitElement {
             <button
               class="card-btn delete"
               title="Delete"
+              aria-label="Delete annotation"
               @click=${(e: Event) => { e.stopPropagation(); this._handleDelete(summary.id) }}
             >
               \u2715

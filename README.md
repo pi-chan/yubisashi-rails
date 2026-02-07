@@ -6,6 +6,8 @@ Leverages `annotate_rendered_view_with_filenames` HTML comments to automatically
 
 <img src="docs/screenshot.png" alt="Annotating a Rails app with yubisashi-rails" width="600">
 
+**Note**: This is a development tool that exposes template file paths. Do not load it in production environments.
+
 ## Usage
 
 In config/environments/development.rb:

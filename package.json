@@ -8,6 +8,20 @@
   },
   "types": "types/yubisashi-rails.d.ts",
   "license": "MIT",
+  "author": "pi-chan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pi-chan/yubisashi-rails.git"
+  },
+  "keywords": [
+    "rails",
+    "annotation",
+    "ui",
+    "lit",
+    "web-components",
+    "ai",
+    "developer-tools"
+  ],
   "files": [
     "dist",
     "types"

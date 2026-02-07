@@ -24,15 +24,11 @@ const tryIdSelector = (element: HTMLElement): string | undefined => {
   return undefined
 }
 
-const escapeAttrValue = (value: string): string => {
-  return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')
-}
-
 const tryDataAttrSelector = (element: HTMLElement): string | undefined => {
   for (const attr of DATA_ATTR_PRIORITIES) {
     const value = element.getAttribute(attr)
     if (value) {
-      const selector = `[${attr}="${escapeAttrValue(value)}"]`
+      const selector = `[${attr}="${CSS.escape(value)}"]`
       if (isUnique(selector)) return selector
     }
   }
