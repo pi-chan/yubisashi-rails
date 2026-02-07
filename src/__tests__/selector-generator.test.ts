@@ -61,7 +61,7 @@ describe('generateSelector', () => {
       el.setAttribute('data-action', 'click->modal#open')
       container.appendChild(el)
 
-      expect(generateSelector(el)).toBe('[data-action="click->modal#open"]')
+      expect(generateSelector(el)).toBe('[data-action="click-\\>modal\\#open"]')
     })
   })
 

@@ -140,9 +140,11 @@ export class YubisashiToolbar extends LitElement {
         <button
           class="toggle ${this.active ? 'active' : ''}"
           title="${this.active ? 'Disable annotation mode' : 'Enable annotation mode'}"
+          aria-label="${this.active ? 'Disable annotation mode' : 'Enable annotation mode'}"
+          aria-pressed="${this.active}"
           @click=${this._handleToggle}
         >
-          ${this.active ? '\u{1F3AF}' : '\u{1F3AF}'}
+          ${this.active ? '\u{1F3AF}' : '\u{1F441}'}
         </button>
 
         <span class="title">yubisashi</span>
@@ -159,6 +161,7 @@ export class YubisashiToolbar extends LitElement {
 
         <button
           title="Copy annotations as ${this.format === 'markdown' ? 'Markdown' : 'JSON'}"
+          aria-label="Copy annotations as ${this.format === 'markdown' ? 'Markdown' : 'JSON'}"
           ?disabled=${this.count === 0}
           @click=${this._handleCopy}
         >
@@ -167,6 +170,7 @@ export class YubisashiToolbar extends LitElement {
 
         <button
           title="Show annotation list"
+          aria-label="Show annotation list"
           ?disabled=${this.count === 0}
           @click=${this._handleList}
         >
@@ -175,6 +179,7 @@ export class YubisashiToolbar extends LitElement {
 
         <button
           title="Clear all annotations"
+          aria-label="Clear all annotations"
           ?disabled=${this.count === 0}
           @click=${this._handleClear}
         >
