@@ -61,11 +61,20 @@ export class YubisashiToolbar extends LitElement {
     }
 
     button.toggle {
-      font-size: 18px;
+      font-size: 16px;
+      background: var(--yubisashi-hover, #f1f5f9);
+      border: 1px solid var(--yubisashi-border, #e2e8f0);
+      color: var(--yubisashi-text, #334155);
+    }
+
+    button.toggle:hover {
+      background: var(--yubisashi-border, #e2e8f0);
     }
 
     button.toggle.active {
       background: var(--yubisashi-primary-bg, #eef2ff);
+      border-color: var(--yubisashi-primary, #6366f1);
+      color: var(--yubisashi-primary, #6366f1);
     }
 
     .title {
@@ -144,7 +153,7 @@ export class YubisashiToolbar extends LitElement {
           aria-pressed="${this.active}"
           @click=${this._handleToggle}
         >
-          ${this.active ? '\u{1F3AF}' : '\u{1F441}'}
+          ${this.active ? '\u2715' : '\u2316'}
         </button>
 
         <span class="title">yubisashi</span>
